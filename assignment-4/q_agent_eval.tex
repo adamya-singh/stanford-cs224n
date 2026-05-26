@@ -1,0 +1,93 @@
+\graphicspath{ {images/} }
+
+\titledquestion{Designing an Agent}[15]
+
+
+In this question you will design an AI agent
+that can complete three different tasks.
+There are three problems your agent should 
+be able to solve:
+
+\begin{itemize}
+    \item If you stacked 10 Statues of Liberty
+    on top of each other, how much taller 
+    than the Eiffel Tower would this be (in meters)?
+    \item Find the GDP of the G7 countries and calculate the mean and standard deviation.
+    \item Read \texttt{data.csv} and calculate the correlation coefficient between columns A and B.
+\end{itemize}
+
+You will fill in the \texttt{query\_agent} function 
+in \texttt{agent.py}. This function 
+takes in a single text prompt, and returns 
+a string answer. The code to test the 
+agent is in \texttt{test\_agent.py}. You 
+can see that there are three test cases 
+(one for each of the above tasks). Each 
+one calls the \texttt{query\_agent} function 
+with a description of the task, and then 
+passes the string outputted from the function,
+and does a fuzzy match against the ground 
+truth answer. 
+
+
+
+You will submit:
+\begin{itemize}
+    \item A completed \texttt{agent.py} 
+    file.
+    \item A text description of your agent 
+    design. This should be a few paragraphs 
+    in length (as a rule of thumb, less 
+    than half a page of text). Make
+    sure to include details of what tools 
+    you gave the agent.
+\end{itemize}
+
+For each test case that your 
+agent passes, you will receive
+5 points. We will deduct points if 
+your text description does not match 
+the implemented code. In addition,
+because we are showing you the test
+cases, it is easy for you to hard code 
+the solutions. We will deduct points 
+for any hard coded solutions. 
+
+{\color{red}
+
+\textbf{Notes}
+
+We will provide them a blank template.
+
+Then have them run evals on the model.
+
+We will ask them not to cheat, but
+they can optimize their models for the eval.
+
+They will submit the code and 
+an explanation of how their agent works.
+
+
+Current Problem Ideas:
+
+\begin{itemize}
+    \item Search + Calculator
+    \begin{itemize}
+        \item Task: The Eiffel Tower is X meters tall. If you stacked Y Statues of Liberty, which would be taller and by how much?
+        \item Tools: WikipediaQueryRun (for heights) + LLMMathChain (for calculation)
+    \end{itemize}
+
+    \item  Search + Python
+    \begin{itemize}
+        \item ``Find the GDP of the G7 countries and calculate the mean and standard deviation''
+        \item Tools: DuckDuckGoSearchRun + PythonREPLTool
+    \end{itemize}
+    
+    \item File Reading + Code Execution
+    \begin{itemize}
+        \item Task: Read data.csv and calculate the correlation coefficient between columns A and B"
+        \item Tools: read\_file + PythonREPLTool
+    \end{itemize}
+\end{itemize}
+
+}

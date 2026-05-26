@@ -1,0 +1,18 @@
+# macOS metadata
+.DS_Store
+__MACOSX/
+
+# Archive downloads; extracted coursework is tracked instead.
+*.zip
+
+# Python and notebook generated files
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Local environments and secrets
+.env
+.venv/
+env/
+venv/

@@ -1,0 +1,127 @@
+\graphicspath{ {images/} }
+
+\titledquestion{Standard Benchmarking}[10]
+
+In this problem you will have to evaluate the properties of various different LLMs that we give you access to through 
+an API using standard benchmarking techniques.
+
+\begin{parts}
+    \part[0] Begin by reading the \texttt{query.py} file. This includes the \texttt{query\_model} function that 
+    you will use to access the models in this question. The function accepts a \texttt{query} and \texttt{model\_id}. It returns the response from the model corresponding to \texttt{model\_id}. The cost 
+    is charged to your GCP billing account. \textbf{Everyone has a fixed amount of credits that should last the 
+    entire pset. Keep a close eye on how much money you
+    have used.} You can do this by accessing the billing page on the GCP dashboard.
+
+    To avoid overspending, try and 
+    test your code on a small 
+    number of inputs. For example,
+    in this question we you will 
+    run your code on 100 questions,
+    but you can test your code 
+    using a smaller number, say 10.
+    This will both be quicker 
+    to run, and iterate on, 
+    for testing, and be cheaper.
+    When you feel confident your 
+    implementation is correct, 
+    you can run it on all 100 
+    examples.
+    ({Tip:} when running on the full dataset, use \texttt{tqdm} for convenient progress bars.)
+
+    In the following questions, we will refer to models by their \texttt{model\_id}, which will simply be a single capital letter, 
+    e.g. model A or B.
+
+    \part[10] In this question you will benchmark a model on the gsm8k benchmark. 
+
+    \begin{subparts}
+    
+        \subpart[7] We have provided you with a 100 problems from the GSM8k benchmark in the \\ \texttt{gsm8k\_first\_100.jsonl} file. Benchmark 
+        models A and B on this data using a string match evaluation. We have provided you 
+        with the \texttt{standard\_prompt\_template}
+        function that you should use to prompt the models, 
+        and the \texttt{standard\_output\_extractor}
+        that you should use to get the numerical 
+        answer from the model outputs.
+        
+        Include all the code you used in the \texttt{gsm8k.py} file. In addition, write the scores 
+        you get for models A and B.
+
+        \subpart[3] Now develop your own prompt template to increase the performance of the model A.
+        Write your prompt template by completing the \texttt{superior\_prompt\_template} 
+        function in \texttt{gsm8k.py}. Use 
+        this function to eval the model by filling in 
+        \texttt{eval\_model\_on\_gsm8k\_with\_improved\_prompt}, and record the performance of model A. Below 
+        include:
+
+        \begin{itemize}
+            \item What was your prompt.
+            \item Why did you think this would improve model performance.
+            \item A bar chart of performance with the standard prompt and your proposed prompt (you can use the standard 
+            prompt performance number from 
+            part (bi).
+            \item Did performance improve? Discuss possible reasons why or why not.
+        \end{itemize}
+
+        To be clear, your goal in this part is to develop 
+        one new prompt that leads to model A 
+        \emph{outperforming} its results 
+        when using our standard prompt.
+        
+
+    \end{subparts}
+
+    %\part[5] Long context retrieval refers to the ability of a model to retrieve information from a large amount of 
+    %input (whether this be a single large document, or a long multi-turn interaction with the user). A ``needle in
+    %a haystack'' evaluation involves placing some fact (the ``needle'') in the middle of a 
+    %long context window (the ``haystack''). We have provided some scaffolding for running this type of analysis 
+    %in \texttt{needle.py}. Use this scaffolding to run a needle in the haystack evaluations of models C and D.
+    % In addition to submitting your code, include the following in your writeup:
+    %
+%
+    %\begin{itemize}
+    %    \item Details of how you conducted the evaluation.
+    %    \item Plots of your results, and accordingly which model was better.
+    %\end{itemize}
+    
+    % \part[10] (Bonus) 
+    % Long context retrieval refers to the ability of a model to retrieve information from a large amount of 
+    % input (whether this be a single large document, or a long multi-turn interaction with the user). 
+    % Recently people have become interested in not only the ability of models to retrieve information
+    % from their context, but also to \emph{reason} over lots of pieces of information within a long context. To 
+    % evaluate this capability of models, people have developed multi-hop reasoning benchmarks. In general, a question within 
+    % such a benchmark involves (a) some long context with \textbf{multiple facts} present in it and (b) a question that 
+    % requires the model to combine all of these facts to get the right answer. Design a very small multi-hop reasoning benchmark 
+    % with 5 problems in. 
+    % When benchmarking AI models, it is important 
+    % that the problems and solutions are not 
+    % present on the internet, else models 
+    % will most likely have been pretrained on 
+    % the solutions already. Accordingly,
+    % you will only score points for this question if 
+    % your five problems are \emph{novel}, that is 
+    % we cannot find them somewhere on the internet 
+    % already.
+    
+    
+    % Evaluate models C and D on your small benchmark. 
+    % You can submit code to run this in the 
+    % \texttt{multihop.py} file (which is blank to begin with). In addition to submitting your code, include the following in 
+    % your writeup:
+
+
+    % \begin{itemize}
+    %     \item An explanation of your benchmark, and an overview of the content of each of your problems. Make sure 
+    %     to include an explanation of how the query is only answerable by reasoning over \emph{multiple} different 
+    %     pieces of information present in the context.
+    %     \item How you evaluate that an answer for each question is correct or not.
+    %     \item A plot of the results of running your benchmark on models C and D. 
+    %     \item Of course as your benchmark is \emph{very small}
+    %     (only includes 5 problems), it is hard to draw concrete conclusions from these results. Describe 
+    %     how you might go about expanding your benchmark to contain more problems. How would you collect the problems 
+    %     and ensure they are diverse, and cover a varying degree of difficulty?
+        
+    % \end{itemize}
+
+\end{parts}
+
+

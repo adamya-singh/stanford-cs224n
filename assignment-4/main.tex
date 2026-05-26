@@ -1,0 +1,259 @@
+\documentclass[answers]{exam}
+\newif\ifanswers
+\answerstrue% comment out to hide answers
+
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{soul}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{hyperref}
+\usepackage{datetime}
+\usepackage{minted}
+\usepackage{xspace}
+\settimeformat{ampmtime}
+\usepackage{listings}
+\usepackage{inconsolata}
+\usepackage{xcolor}
+\usepackage{natbib}
+
+\lstset{
+    breaklines=true,
+    breakatwhitespace=true
+}
+
+\usepackage{array}
+\newcommand*{\vertbar}{\rule[-1ex]{0.5pt}{2.5ex}}
+\newcommand*{\horzbar}{\rule[.5ex]{2.5ex}{0.5pt}}
+
+\newcommand{\LB}[1]{\textcolor{red}{[LB: #1]}}
+
+
+
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{todonotes}
+\usepackage[symbol]{footmisc}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,patterns,fit,calc}
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+%\pagestyle{fancy}
+%\rhead{\hmwkAuthorName} % Top left header
+%\lhead{\hmwkClass: \hmwkTitle} % Top center head
+%\lfoot{\lastxmark} % Bottom left footer
+%\cfoot{} % Bottom center footer
+%\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+%\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+%\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\newcommand{\mingpt}{\texttt{minGPT}\xspace}
+\newcommand{\ourmodel}{\texttt{minLinT5}\xspace}
+
+\pagestyle{headandfoot}
+\runningheadrule{}
+\firstpageheader{CS 224N Winter 2026}{Assignment 4}{LLM Evals}
+\runningheader{CS 224N Winter 2026} {Assignment 4} {Page \thepage\ of \numpages}
+\firstpagefooter{}{}{} \runningfooter{}{}{}
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	CODE INCLUSION CONFIGURATION
+%----------------------------------------------------------------------------------------
+
+\definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0} % This is the color used for comments
+\lstloadlanguages{Python} % Load Perl syntax for listings, for a list of other languages supported see: ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
+\lstset{language=Python, % Use Perl in this example
+        frame=single, % Single frame around code
+        basicstyle=\footnotesize\ttfamily, % Use small true type font
+        keywordstyle=[1]\color{Blue}\bf, % Perl functions bold and blue
+        keywordstyle=[2]\color{Purple}, % Perl function arguments purple
+        keywordstyle=[3]\color{Blue}\underbar, % Custom functions underlined and blue
+        identifierstyle=, % Nothing special about identifiers
+        commentstyle=\usefont{T1}{pcr}{m}{sl}\color{MyDarkGreen}\small, % Comments small dark green courier font
+        stringstyle=\color{Purple}, % Strings are purple
+        showstringspaces=false, % Don't put marks in string spaces
+        tabsize=5, % 5 spaces per tab
+        %
+        % Put standard Perl functions not included in the default language here
+        morekeywords={rand},
+        %
+        % Put Perl function parameters here
+        morekeywords=[2]{on, off, interp},
+        %
+        % Put user defined functions here
+        morekeywords=[3]{test},
+       	%
+        morecomment=[l][\color{Blue}]{...}, % Line continuation (...) like blue comment
+        numbers=left, % Line numbers on left
+        firstnumber=1, % Line numbers start with line 1
+        numberstyle=\tiny\color{Blue}, % Line numbers are blue and small
+        stepnumber=5 % Line numbers go in steps of 5
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+ 
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Assignment 4\\ LLM Evals} % Assignment title
+\newcommand{\hmwkClass}{CS\ 224N Winter 2025} % Course/class
+\newcommand{\ifans}[1]{\ifanswers \color{red}  \textbf{Solution: } #1 \color{black} 
+ \fi}
+% \vspace{5mm} \fi}
+
+\input std-macros
+\input macros
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\qformat{\Large\bfseries\thequestion{}. \thequestiontitle{} (\thepoints{})\hfill}
+
+\title{
+\textmd{\textbf{\hmwkClass\ \hmwkTitle}}
+}
+\author{}
+%\date{\textit{\small Updated \today\ at \currenttime}} % Insert date here if you want it to appear below your name
+\date{}
+
+\setcounter{section}{0} % one-indexing
+\begin{document}
+
+\vspace{-1in}
+
+\maketitle
+
+\vspace{-0.5in}
+
+
+%\begin{framed}
+%\noindent
+%$ \textbf{Note.} Here are some things to keep in mind as you plan your time for this assignment.
+%\begin{itemize}
+%$    \item 
+%$    \item 
+%\end{itemize}
+%\end{framed}
+
+\textbf{Due date: February 19, Thursday, 4:30 PM PST}
+
+In this assignment we will explore different
+methods to evaluate the performance of LLMs.
+We can roughly split LLM evaluations up 
+into four categories:
+
+\begin{itemize}
+    \item \textbf{Standard closed ended benchmarking.} In this type of benchmarking we produce a set of problems and an associated, usually simple, way of classifying if the answer to a problem is correct. For example, we may produce a set of math problems
+    and evaluate a response as correct if it ends with a string that matches the correct numerical answer. Examples of such 
+    benchmarks include GSM8k \cite{cobbe2021training} and MATH \cite{hendrycks2021measuring}. 
+    \item \textbf{LLM as judge.} In some cases, it is difficult to create a simple verifier to classify if an answer has 
+    some property. Sometimes, we can use a separate (possibly more powerful) LLM to decide. For example
+    \citet{souly2024strongreject} use GPT-4o to categorize model outputs as ``harmful and helpful,'' a metric 
+    used to evaluate the susceptibility of LLMs to jailbreaking.
+    \item \textbf{User study.} The model is evaluated by a collection of humans in a controlled experiment. These 
+    types of evaluations are often expensive and difficult to run, but if conducted properly provide very strong 
+    signal. For example, \citet{becker2025measuring} conduct a user study investigating the effect on coding productivity 
+    of AI assistants using a small set of open source software engineers.
+    \item \textbf{Interacting with the model.} This is the informal testing we all do when we actually use 
+    LLMs. There is no particular structure to it, instead being open-ended and exploratory. Simply interacting 
+    with a model can be the fastest way to find different failure modes.
+\end{itemize}
+
+
+
+This pset involves three different parts:
+
+\begin{itemize}
+    \item In the first part, we will give you access 
+    to a number of different LLMs through an API. You're 
+    job is to run some standard closed 
+    ended benchmarking. There is also the opportunity for 
+    extra credit here.
+    \item In the second part, you will conduct 
+    some LLM as judge benchmarking.
+    \item In the third part you will red-team an LLM 
+    to try and show it can be made to disobey its system prompt.
+\end{itemize}
+
+\newpage
+
+\begin{questions}
+    \input q_gcp_credits
+    \input q_standard
+    \input q_standard_answer
+    \newpage
+    
+    \input q_llm_judge
+    \input q_llm_judge_answer
+    \newpage 
+    
+    \input q_model_interaction
+    \input q_model_interaction_answer
+    \newpage
+    
+    %\input q_agent_eval
+    %\input q_agent_eval_answer
+    %\newpage
+\end{questions}
+
+\Large{\textbf{Submission Instructions}}
+
+
+\normalsize
+
+\begin{itemize}
+    \item Please submit the written component as a PDF with tagged pages on Gradescope. \textbf{Please tag the questions correctly.}
+    \item For code submission, please run \texttt{bash create\_submission.sh} and upload your code files submission 
+\end{itemize}
+
+
+%\normalsize
+%You will submit this assignment on GradeScope as two submissions -- one for \textbf{Assignment 4 [coding]} and another for \textbf{Assignment 4 [written]}:
+%\begin{enumerate}
+%    \item Verify that the following files exist at these specified paths within your assignment directory:
+%        \begin{itemize}
+%            \item The no-pretraining model and predictions: \texttt{vanilla.model.params}, \texttt{vanilla.nopretrain.dev.predictions},\\\texttt{vanilla.nopretrain.test.predictions}
+%            \item The London baseline accuracy: \texttt{london\_baseline\_accuracy.txt}
+%            \item The pretrain-finetune model and predictions: \texttt{vanilla.finetune.params}, \texttt{vanilla.pretrain.dev.predictions}, \\ \texttt{vanilla.pretrain.test.predictions}
+%            \item The RoPE model and predictions: \texttt{rope.finetune.params}, \texttt{rope.pretrain.dev.predictions}, \\ \texttt{rope.pretrain.test.predictions}
+%        \end{itemize}
+%
+%    \item Run \texttt{collect\_submission.sh} (on Linux/Mac) or \texttt{collect\_submission.bat} (on Windows) to produce your \texttt{assignment4.zip} file.
+%    \item Upload your \texttt{assignment4.zip} file to GradeScope to \textbf{Assignment 4 [coding]}.
+%    \item Check that the public autograder tests passed correctly.
+%    \item Upload your written solutions, for questions 1, parts of 2, and 3, to GradeScope to \textbf{Assignment 4 [written]}. Tag it properly!
+%\end{enumerate}
+
+\bibliographystyle{plainnat}
+\bibliography{main}
+
+\end{document}

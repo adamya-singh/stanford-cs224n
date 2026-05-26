@@ -1,0 +1,97 @@
+\graphicspath{ {images/} }
+
+\titledquestion{LLM Judge Benchmarking}[13]
+
+In this problem you will evaluate the performance of different LLMs using another LLM as a judge. We will use the Alpaca Eval 
+dataset for this evaluation. The questions in the dataset 
+are designed to be representative of user interactions 
+with chatbots. 
+
+
+\begin{parts}
+
+\part[0] We have included 30 problems from the Alpaca Eval 
+dataset in \texttt{alpaca\_eval\_first\_30.jsonl}. Start by inspecting some 
+of the problems to a get a feel for the datset.
+
+\part[5] Now we will evaluate the performance of models 
+E and F on this subset of Alpaca Eval using LLM Z as judge.
+Recall that to run this eval we will have to:
+
+\begin{itemize}
+    \item For each input prompt, sample a response
+    from models E and F.
+    \item Prompt model Z to decide which response is best.
+    \item Aggregate the win rate between the models 
+    across the 30 problems.
+\end{itemize}
+
+We have provided some starter code for you 
+to complete in \texttt{llm\_judge.py}. 
+In addition to submitting the code, include 
+the following in your writeup:
+
+\begin{itemize}
+    \item Details of how you conducted the evaluation. This should include how your prompted the LLM judge and extracted 
+    scores from it.
+    \item Plots of your results, and accordingly which model was better.
+\end{itemize}
+
+\textbf{NOTE:} When you complete your evaluation, save 
+the model responses and judge output to a file. You will 
+be analyzing these outputs in the next two subproblems,
+and it will be easier if you don't have to regenerate the 
+evaluation data.
+
+\part[4]  Now inspect 5 of the responses 
+from models E and F to 5 of the alpaca 
+eval questions. 
+For each, decide which one you would rate 
+as being a more useful response. 
+Below include:
+
+\begin{itemize}
+    \item How many times you agreed 
+    with the judge, and how many times you
+    disagreed?
+    \item Include 1 example from the 
+    dataset where you disagree with 
+    which output the judge preferred.
+    For this example, include the 
+    alpaca eval query, model E response, 
+    model F response, and judge response.
+    \item Do you notice anything that is 
+    consistently different between the output 
+    of model E and model F?
+    \item Overall, do you think the LLM 
+    judge is doing a good job? If so,
+    why. If not, why.
+\end{itemize}
+
+
+\part[4] Now across the 30 Alpaca Eval problems, 
+plot the following two histograms on the same axis:
+
+\begin{itemize}
+    \item The histogram of lengths of output that
+    the judge preferred.
+    \item The histogram of lengths of output that 
+    the model did not prefer.
+\end{itemize}
+
+As we tested on 30 problems, each of which has a preferred 
+and not preferred output (according to the judge), each 
+histogram will have 30 datapoints.
+
+Include the plot below. Comment on any trends 
+you notice in the data. Now you have seen this,
+do you trust that the LLM as judge evaluation 
+you ran is indeed reflecting which model 
+users would prefer? Provide justification 
+for the answer you give.
+
+
+
+\end{parts}
+
+
