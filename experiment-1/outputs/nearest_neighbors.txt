@@ -1,0 +1,119 @@
+movie:
+  made	0.9884
+  film	0.9879
+  this	0.9876
+  not	0.9809
+  does	0.9792
+  bad	0.9704
+  <END>	0.9664
+  actor	0.9630
+  good	0.9617
+  like	0.9557
+
+book:
+  also	0.9841
+  past	0.9803
+  acting	0.9794
+  any	0.9784
+  after	0.9775
+  actually	0.9756
+  first	0.9752
+  through	0.9737
+  plot	0.9736
+  love	0.9717
+
+mysterious:
+  rachel	0.9118
+  herself	0.8832
+  named	0.8825
+  breathing	0.8812
+  emotional	0.8801
+  thatbr	0.8744
+  robert	0.8682
+  clear	0.8650
+  adultery	0.8638
+  local	0.8626
+
+story:
+  which	0.9834
+  shots	0.9825
+  script	0.9796
+  scene	0.9794
+  of	0.9752
+  level	0.9750
+  those	0.9747
+  being	0.9742
+  theres	0.9739
+  beautiful	0.9729
+
+fascinating:
+  recording	0.9732
+  personally	0.9727
+  lights	0.9715
+  corpse	0.9707
+  illiteracy	0.9700
+  develop	0.9699
+  domain	0.9685
+  prior	0.9679
+  curing	0.9677
+  listsbr	0.9676
+
+good:
+  like	0.9870
+  its	0.9818
+  better	0.9763
+  not	0.9741
+  <END>	0.9718
+  just	0.9665
+  actor	0.9652
+  but	0.9645
+  decent	0.9641
+  called	0.9624
+
+interesting:
+  makes	0.9837
+  why	0.9833
+  really	0.9791
+  me	0.9750
+  watching	0.9731
+  worth	0.9692
+  can	0.9669
+  ill	0.9651
+  never	0.9628
+  how	0.9619
+
+large:
+  short	0.8971
+  whats	0.8932
+  says	0.8916
+  cell	0.8789
+  ate	0.8763
+  placed	0.8707
+  virtuous	0.8659
+  simpsons	0.8602
+  halfway	0.8602
+  rush	0.8552
+
+massive:
+  giving	0.8404
+  rush	0.8272
+  planet	0.8257
+  high	0.8248
+  crime	0.8192
+  whats	0.8189
+  head	0.8150
+  dialect	0.8135
+  boy	0.8068
+  portrayal	0.8067
+
+huge:
+  starts	0.8383
+  shame	0.7217
+  budget	0.7154
+  dumb	0.6967
+  goldie	0.6952
+  big	0.6762
+  sykes	0.6646
+  gun	0.6643
+  coffeshop	0.6618
+  low	0.6437
